@@ -4,6 +4,9 @@ from torch.utils.data import Dataset, DataLoader
 import pandas as pd
 import numpy as np
 
+# Limit torch to 1 gpu
+# torch.
+
 class SensorDataset(Dataset):
     def __init__(self, data_dir, time_window=1):
         self.data_dir = data_dir
@@ -66,7 +69,7 @@ def pad_inputs(batch):
 
     # Pad sequences
     inputs_padded = torch.nn.utils.rnn.pad_sequence(inputs, batch_first=True)
-    return inputs_padded, labels, lengths
+    return inputs_padded, labels, lengths.to(torch.long)
 
 # dataloader = DataLoader(SensorDataset('data/', time_window=7), batch_size=16, shuffle=True, collate_fn=pad_inputs)
 # for x, y, lengths in dataloader:
@@ -107,7 +110,7 @@ class LSTMClassifier(pl.LightningModule):
 
     def forward(self, x, lengths):
         # Pack the padded sequence
-        packed_x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths, batch_first=True, enforce_sorted=True)
+        packed_x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths.long(), batch_first=True, enforce_sorted=True)
         packed_out, (hidden, _) = self.lstm(packed_x)
         
         # Use the last hidden state for classification
@@ -139,7 +142,7 @@ class LSTMClassifier(pl.LightningModule):
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.learning_rate)
 
-import optuna
+import optuna, random
 from pytorch_lightning.loggers import TensorBoardLogger
 from pytorch_lightning import Trainer
 
@@ -159,14 +162,17 @@ def objective(trial):
 
     # Model
     model = LSTMClassifier(input_size=12, hidden_sizes=hidden_sizes, num_classes=num_classes, learning_rate=learning_rate)
-
+    model.to("cuda")
     # Training
-    logger = TensorBoardLogger("tb_logs", name="optuna_run5")
+    logger = TensorBoardLogger("tb_logs", name="optuna_run6")
     trainer = Trainer(
+        strategy='ddp',
+        devices=1,
         max_epochs=10,
         logger=logger,
         enable_checkpointing=False,
-        val_check_interval=0.25  # Validate every 25% of an epoch
+        val_check_interval=0.25,  # Validate every 25% of an epoch
+        deterministic=True
     )
     trainer.fit(model, train_loader, val_loader)
 
@@ -174,7 +180,7 @@ def objective(trial):
     return trainer.callback_metrics["val_loss"].item()
 
 train_loader = None
-if (False):
+if (True):
     # Run optimization
     data_dir = "data/" 
     study = optuna.create_study(direction="minimize")

@@ -43,7 +43,7 @@ def swap_data_in_columns(folder_path):
                     print(f"Error processing {file_path}: {e}")
 
 # Replace this with the path to your "data" folder
-data_folder = "data/down-h"
+data_folder = "data/up"
 
 # Call the function to process all CSVs
 swap_data_in_columns(data_folder)
