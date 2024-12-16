@@ -1,0 +1,334 @@
+Executing action: monitor
+Serial port /dev/ttyUSB0
+Connecting....
+Detecting chip type... ESP32-S3
+Running idf_monitor in directory /home/harrison/528Project
+Executing "/home/harrison/.espressif/python_env/idf5.3_py3.8_env/bin/python /home/harrison/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/harrison/528Project/build/assignment-1.elf -m '/home/harrison/.espressif/python_env/idf5.3_py3.8_env/bin/python' '/home/harrison/esp/esp-idf/tools/idf.py'"...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0xb (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+Octal Flash Mode Enabled
+For OPI Flash, Use Default Flash Boot Mode
+mode:SLOW_RD, clock div:1
+load:0x3fce2810,len:0x178c
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xcb8
+load:0x403cb700,len:0x2db0
+entry 0x403c8914
+[0;32mI (33) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Nov 19 2024 10:21:04[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v0.1[0m
+[0;32mI (40) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (45) boot.esp32s3: SPI Mode       : SLOW READ[0m
+[0;32mI (50) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00005000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000e000 00002000[0m
+[0;32mI (86) boot:  2 app0             OTA app          00 10 00010000 00100000[0m
+[0;32mI (94) boot:  3 app1             OTA app          00 11 00110000 00100000[0m
+[0;32mI (101) boot:  4 spiffs           Unknown data     01 82 00210000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0ba2ch ( 47660) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0001ba54 vaddr=3fc93800 size=02a74h ( 10868) load[0m
+[0;32mI (136) esp_image: segment 2: paddr=0001e4d0 vaddr=40374000 size=01b48h (  6984) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1d310h (119568) map[0m
+[0;32mI (175) esp_image: segment 4: paddr=0003d338 vaddr=40375b48 size=0dc6ch ( 56428) load[0m
+[0;32mI (198) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (198) boot: Disabling RNG early entropy source...[0m
+[0;32mI (210) cpu_start: Multicore app[0m
+[0;32mI (219) cpu_start: Pro cpu start user code[0m
+[0;32mI (219) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (219) app_init: Application information:[0m
+[0;32mI (222) app_init: Project name:     assignment-1[0m
+[0;32mI (227) app_init: App version:      1[0m
+[0;32mI (231) app_init: Compile time:     Nov 19 2024 10:20:57[0m
+[0;32mI (237) app_init: ELF file SHA256:  57b0d8957...[0m
+[0;32mI (242) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (247) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (252) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (257) efuse_init: Chip rev:         v0.1[0m
+[0;32mI (262) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (269) heap_init: At 3FC96B50 len 00052BC0 (330 KiB): RAM[0m
+[0;32mI (275) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (281) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (287) heap_init: At 600FE100 len 00001EE8 (7 KiB): RTCRAM[0m
+[0;33mW (294) spi_flash: Octal flash chip is using but dio mode is selected, will automatically switch to Octal mode[0m
+[0;32mI (304) spi_flash: detected chip: mxic (opi)[0m
+[0;32mI (309) spi_flash: flash io: opi_str[0m
+[0;33mW (314) spi_flash: Detected size(32768k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;33mW (327) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (337) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (344) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (362) main_task: Calling app_main()[0m
+[0;32mI (3402) mpu6050 test: MPU1 acce_x:0.46777, acce_y:0.41772, acce_z:0.85986, gyro_x:-0.21374, gyro_y:2.19847, gyro_z:1.35878[0m
+[0;32mI (3432) mpu6050 test: MPU2 acce_x:0.14380, acce_y:0.25366, acce_z:0.96802, gyro_x:-5.43511, gyro_y:-0.96183, gyro_z:0.54962[0m
+[0;32mI (3452) mpu6050 test: MPU1 acce_x:0.43750, acce_y:0.41162, acce_z:0.84155, gyro_x:-2.59542, gyro_y:-1.74046, gyro_z:3.86260[0m
+[0;32mI (3482) mpu6050 test: MPU2 acce_x:0.12964, acce_y:0.24023, acce_z:0.89160, gyro_x:-5.66412, gyro_y:-2.97710, gyro_z:1.98473[0m
+[0;32mI (3512) mpu6050 test: MPU1 acce_x:0.42017, acce_y:0.38770, acce_z:0.79175, gyro_x:1.61832, gyro_y:-1.40458, gyro_z:3.26718[0m
+[0;32mI (3532) mpu6050 test: MPU2 acce_x:0.09961, acce_y:0.23828, acce_z:0.96143, gyro_x:-3.32824, gyro_y:-1.83206, gyro_z:-0.27481[0m
+[0;32mI (3562) mpu6050 test: MPU1 acce_x:0.40820, acce_y:0.40356, acce_z:0.85010, gyro_x:-2.97710, gyro_y:-1.51145, gyro_z:1.77099[0m
+[0;32mI (3592) mpu6050 test: MPU2 acce_x:0.10107, acce_y:0.22412, acce_z:0.92285, gyro_x:-5.09924, gyro_y:-0.50382, gyro_z:-2.94656[0m
+[0;32mI (3612) mpu6050 test: MPU1 acce_x:0.42041, acce_y:0.38892, acce_z:0.80176, gyro_x:-1.66412, gyro_y:0.29008, gyro_z:-1.38931[0m
+[0;32mI (3642) mpu6050 test: MPU2 acce_x:0.14038, acce_y:0.23267, acce_z:0.92627, gyro_x:-2.54962, gyro_y:-0.77863, gyro_z:-1.75573[0m
+[0;32mI (3662) mpu6050 test: MPU1 acce_x:0.44897, acce_y:0.40161, acce_z:0.81348, gyro_x:-0.61069, gyro_y:-1.09924, gyro_z:0.77863[0m
+[0;32mI (3692) mpu6050 test: MPU2 acce_x:0.14893, acce_y:0.23535, acce_z:0.91992, gyro_x:-2.97710, gyro_y:0.01527, gyro_z:0.12214[0m
+[0;32mI (3722) mpu6050 test: MPU1 acce_x:0.42993, acce_y:0.38135, acce_z:0.81348, gyro_x:-0.71756, gyro_y:0.04580, gyro_z:0.99237[0m
+[0;32mI (3742) mpu6050 test: MPU2 acce_x:0.12109, acce_y:0.22217, acce_z:0.90967, gyro_x:-0.38168, gyro_y:-0.50382, gyro_z:-0.48855[0m
+[0;32mI (3772) mpu6050 test: MPU1 acce_x:0.43066, acce_y:0.37305, acce_z:0.82666, gyro_x:2.03053, gyro_y:-0.12214, gyro_z:-0.18321[0m
+[0;32mI (3802) mpu6050 test: MPU2 acce_x:0.12964, acce_y:0.22803, acce_z:0.94995, gyro_x:-0.50382, gyro_y:-0.30534, gyro_z:-1.06870[0m
+[0;32mI (3822) mpu6050 test: MPU1 acce_x:0.43652, acce_y:0.38745, acce_z:0.82935, gyro_x:0.90076, gyro_y:0.48855, gyro_z:-0.76336[0m
+[0;32mI (3852) mpu6050 test: MPU2 acce_x:0.13770, acce_y:0.23657, acce_z:0.93970, gyro_x:-1.51145, gyro_y:0.10687, gyro_z:-0.16794[0m
+[0;32mI (3882) mpu6050 test: MPU1 acce_x:0.43213, acce_y:0.39526, acce_z:0.84229, gyro_x:0.33588, gyro_y:-1.05344, gyro_z:1.14504[0m
+[0;32mI (3902) mpu6050 test: MPU2 acce_x:0.12109, acce_y:0.22852, acce_z:0.94116, gyro_x:-3.80153, gyro_y:-2.32061, gyro_z:-0.09160[0m
+[0;32mI (3932) mpu6050 test: MPU1 acce_x:0.43066, acce_y:0.38599, acce_z:0.81592, gyro_x:0.91603, gyro_y:-0.58015, gyro_z:0.18321[0m
+[0;32mI (3962) mpu6050 test: MPU2 acce_x:0.13208, acce_y:0.23682, acce_z:0.92261, gyro_x:-0.59542, gyro_y:-0.53435, gyro_z:0.18321[0m
+[0;32mI (3982) mpu6050 test: MPU1 acce_x:0.44019, acce_y:0.39111, acce_z:0.83130, gyro_x:1.48092, gyro_y:-0.10687, gyro_z:0.74809[0m
+[0;32mI (4012) mpu6050 test: MPU2 acce_x:0.11694, acce_y:0.24536, acce_z:0.97754, gyro_x:-3.57252, gyro_y:0.73282, gyro_z:-0.44275[0m
+[0;32mI (4032) mpu6050 test: MPU1 acce_x:0.43677, acce_y:0.38916, acce_z:0.82788, gyro_x:1.12977, gyro_y:1.23664, gyro_z:0.67176[0m
+[0;32mI (4062) mpu6050 test: MPU2 acce_x:0.13745, acce_y:0.22729, acce_z:0.92236, gyro_x:-1.12977, gyro_y:-0.70229, gyro_z:-0.21374[0m
+[0;32mI (4092) mpu6050 test: MPU1 acce_x:0.43433, acce_y:0.38379, acce_z:0.82373, gyro_x:2.36641, gyro_y:0.09160, gyro_z:-0.47328[0m
+[0;32mI (4112) mpu6050 test: MPU2 acce_x:0.12622, acce_y:0.22363, acce_z:0.92871, gyro_x:-0.91603, gyro_y:0.38168, gyro_z:-0.68702[0m
+[0;32mI (4142) mpu6050 test: MPU1 acce_x:0.43042, acce_y:0.38721, acce_z:0.82349, gyro_x:2.03053, gyro_y:-0.01527, gyro_z:-0.79389[0m
+[0;32mI (4172) mpu6050 test: MPU2 acce_x:0.12842, acce_y:0.22485, acce_z:0.91821, gyro_x:0.53435, gyro_y:-0.76336, gyro_z:-0.82443[0m
+[0;32mI (4192) mpu6050 test: MPU1 acce_x:0.40601, acce_y:0.37793, acce_z:0.80420, gyro_x:2.93130, gyro_y:-2.33588, gyro_z:-2.16794[0m
+[0;32mI (4222) mpu6050 test: MPU2 acce_x:0.13599, acce_y:0.22119, acce_z:0.88525, gyro_x:4.00000, gyro_y:1.43511, gyro_z:-2.13740[0m
+[0;32mI (4252) mpu6050 test: MPU1 acce_x:0.43726, acce_y:0.39941, acce_z:0.83740, gyro_x:3.02290, gyro_y:0.15267, gyro_z:-2.51908[0m
+[0;32mI (4272) mpu6050 test: MPU2 acce_x:0.07031, acce_y:0.19507, acce_z:0.90381, gyro_x:10.58015, gyro_y:-5.61832, gyro_z:-3.20611[0m
+[0;32mI (4302) mpu6050 test: MPU1 acce_x:0.43091, acce_y:0.38696, acce_z:0.80103, gyro_x:3.60305, gyro_y:-0.62595, gyro_z:-2.44275[0m
+[0;32mI (4322) mpu6050 test: MPU2 acce_x:0.13184, acce_y:0.23926, acce_z:0.89966, gyro_x:7.46565, gyro_y:1.32824, gyro_z:-1.02290[0m
+[0;32mI (4352) mpu6050 test: MPU1 acce_x:0.42163, acce_y:0.39062, acce_z:0.81567, gyro_x:5.37405, gyro_y:2.59542, gyro_z:-4.58015[0m
+[0;32mI (4382) mpu6050 test: MPU2 acce_x:0.13989, acce_y:0.26392, acce_z:0.93774, gyro_x:11.41985, gyro_y:7.77099, gyro_z:0.56489[0m
+[0;32mI (4402) mpu6050 test: MPU1 acce_x:0.43213, acce_y:0.42505, acce_z:0.89282, gyro_x:1.26718, gyro_y:0.88550, gyro_z:-0.16794[0m
+[0;32mI (4432) mpu6050 test: MPU2 acce_x:0.09302, acce_y:0.27344, acce_z:0.97314, gyro_x:2.09160, gyro_y:1.25191, gyro_z:-0.85496[0m
+[0;32mI (4462) mpu6050 test: MPU1 acce_x:0.40088, acce_y:0.39453, acce_z:0.82788, gyro_x:1.57252, gyro_y:-3.00763, gyro_z:-1.08397[0m
+[0;32mI (4482) mpu6050 test: MPU2 acce_x:0.13428, acce_y:0.25977, acce_z:0.92773, gyro_x:-0.13740, gyro_y:-2.39695, gyro_z:0.45802[0m
+[0;32mI (4512) mpu6050 test: MPU1 acce_x:0.43237, acce_y:0.39917, acce_z:0.85059, gyro_x:4.07634, gyro_y:-0.39695, gyro_z:-1.98473[0m
+[0;32mI (4542) mpu6050 test: MPU2 acce_x:0.12134, acce_y:0.28491, acce_z:0.98218, gyro_x:0.09160, gyro_y:2.27481, gyro_z:-1.70992[0m
+[0;32mI (4562) mpu6050 test: MPU1 acce_x:0.45044, acce_y:0.43726, acce_z:0.89160, gyro_x:-2.85496, gyro_y:0.48855, gyro_z:0.50382[0m
+[0;32mI (4592) mpu6050 test: MPU2 acce_x:0.12549, acce_y:0.29590, acce_z:0.94751, gyro_x:-7.19084, gyro_y:-2.85496, gyro_z:0.06107[0m
+[0;32mI (4612) mpu6050 test: MPU1 acce_x:0.42749, acce_y:0.41064, acce_z:0.79980, gyro_x:-1.77099, gyro_y:-3.81679, gyro_z:3.55725[0m
+[0;32mI (4642) mpu6050 test: MPU2 acce_x:0.12915, acce_y:0.27197, acce_z:0.91016, gyro_x:-4.61069, gyro_y:0.25954, gyro_z:1.55725[0m
+[0;32mI (4672) mpu6050 test: MPU1 acce_x:0.41235, acce_y:0.38696, acce_z:0.81250, gyro_x:-0.27481, gyro_y:1.87786, gyro_z:1.81679[0m
+[0;32mI (4692) mpu6050 test: MPU2 acce_x:0.10034, acce_y:0.26270, acce_z:0.94287, gyro_x:-4.67176, gyro_y:-1.54198, gyro_z:0.99237[0m
+[0;32mI (4722) mpu6050 test: MPU1 acce_x:0.42163, acce_y:0.40088, acce_z:0.84985, gyro_x:-0.54962, gyro_y:1.23664, gyro_z:0.77863[0m
+[0;32mI (4752) mpu6050 test: MPU2 acce_x:0.11035, acce_y:0.26904, acce_z:0.92700, gyro_x:-3.29771, gyro_y:0.85496, gyro_z:-0.24427[0m
+[0;32mI (4772) mpu6050 test: MPU1 acce_x:0.42041, acce_y:0.40454, acce_z:0.83179, gyro_x:-0.99237, gyro_y:-0.59542, gyro_z:1.51145[0m
+[0;32mI (4802) mpu6050 test: MPU2 acce_x:0.10791, acce_y:0.26123, acce_z:0.93726, gyro_x:-6.68702, gyro_y:-2.32061, gyro_z:-0.65649[0m
+[0;32mI (4832) mpu6050 test: MPU1 acce_x:0.40283, acce_y:0.37158, acce_z:0.78882, gyro_x:-0.83969, gyro_y:-3.16031, gyro_z:1.37405[0m
+[0;32mI (4852) mpu6050 test: MPU2 acce_x:0.11865, acce_y:0.24731, acce_z:0.89624, gyro_x:-4.38168, gyro_y:-3.67939, gyro_z:-0.19847[0m
+[0;32mI (4882) mpu6050 test: MPU1 acce_x:0.43286, acce_y:0.38013, acce_z:0.81201, gyro_x:0.74809, gyro_y:-1.17557, gyro_z:1.06870[0m
+[0;32mI (4912) mpu6050 test: MPU2 acce_x:0.12988, acce_y:0.24951, acce_z:0.91528, gyro_x:-2.80916, gyro_y:-1.57252, gyro_z:-0.12214[0m
+[0;32mI (4932) mpu6050 test: MPU1 acce_x:0.44165, acce_y:0.38135, acce_z:0.82397, gyro_x:1.26718, gyro_y:0.87023, gyro_z:0.91603[0m
+[0;32mI (4962) mpu6050 test: MPU2 acce_x:0.12280, acce_y:0.26050, acce_z:0.92041, gyro_x:-1.28244, gyro_y:-0.59542, gyro_z:0.06107[0m
+[0;32mI (4982) mpu6050 test: MPU1 acce_x:0.43286, acce_y:0.38770, acce_z:0.82202, gyro_x:1.51145, gyro_y:-0.80916, gyro_z:1.66412[0m
+[0;32mI (5012) mpu6050 test: MPU2 acce_x:0.11597, acce_y:0.25635, acce_z:0.92773, gyro_x:-4.64122, gyro_y:-1.96947, gyro_z:0.77863[0m
+[0;32mI (5042) mpu6050 test: MPU1 acce_x:0.42236, acce_y:0.38501, acce_z:0.81934, gyro_x:1.14504, gyro_y:-1.34351, gyro_z:1.40458[0m
+[0;32mI (5062) mpu6050 test: MPU2 acce_x:0.12183, acce_y:0.25122, acce_z:0.91260, gyro_x:-1.77099, gyro_y:-1.78626, gyro_z:0.82443[0m
+[0;32mI (5092) mpu6050 test: MPU1 acce_x:0.43115, acce_y:0.39307, acce_z:0.83789, gyro_x:0.96183, gyro_y:-1.32824, gyro_z:1.49618[0m
+[0;32mI (5122) mpu6050 test: MPU2 acce_x:0.12036, acce_y:0.24487, acce_z:0.92456, gyro_x:-2.04580, gyro_y:-1.90840, gyro_z:0.29008[0m
+[0;32mI (5142) mpu6050 test: MPU1 acce_x:0.42456, acce_y:0.37671, acce_z:0.82471, gyro_x:1.51145, gyro_y:0.76336, gyro_z:0.07634[0m
+[0;32mI (5172) mpu6050 test: MPU2 acce_x:0.11963, acce_y:0.25098, acce_z:0.91772, gyro_x:-0.80916, gyro_y:0.06107, gyro_z:-0.38168[0m
+[0;32mI (5202) mpu6050 test: MPU1 acce_x:0.42920, acce_y:0.38330, acce_z:0.82104, gyro_x:3.34351, gyro_y:-1.83206, gyro_z:0.51908[0m
+[0;32mI (5222) mpu6050 test: MPU2 acce_x:0.12622, acce_y:0.26196, acce_z:0.94556, gyro_x:-2.91603, gyro_y:-1.95420, gyro_z:0.51908[0m
+[0;32mI (5252) mpu6050 test: MPU1 acce_x:0.42725, acce_y:0.39502, acce_z:0.83936, gyro_x:0.73282, gyro_y:-0.18321, gyro_z:1.17557[0m
+[0;32mI (5272) mpu6050 test: MPU2 acce_x:0.12085, acce_y:0.24829, acce_z:0.91309, gyro_x:-2.18321, gyro_y:-1.11450, gyro_z:0.19847[0m
+[0;32mI (5302) mpu6050 test: MPU1 acce_x:0.43213, acce_y:0.38281, acce_z:0.82324, gyro_x:2.33588, gyro_y:0.33588, gyro_z:-0.09160[0m
+[0;32mI (5332) mpu6050 test: MPU2 acce_x:0.12671, acce_y:0.25146, acce_z:0.93042, gyro_x:-1.64885, gyro_y:-1.26718, gyro_z:0.18321[0m
+[0;32mI (5352) mpu6050 test: MPU1 acce_x:0.42212, acce_y:0.38477, acce_z:0.82739, gyro_x:1.60305, gyro_y:-0.99237, gyro_z:0.54962[0m
+[0;32mI (5382) mpu6050 test: MPU2 acce_x:0.13379, acce_y:0.24878, acce_z:0.92944, gyro_x:-3.93893, gyro_y:-2.36641, gyro_z:0.22901[0m
+[0;32mI (5412) mpu6050 test: MPU1 acce_x:0.43213, acce_y:0.38501, acce_z:0.81250, gyro_x:2.64122, gyro_y:-1.06870, gyro_z:0.74809[0m
+[0;32mI (5432) mpu6050 test: MPU2 acce_x:0.13062, acce_y:0.23853, acce_z:0.94995, gyro_x:-10.50382, gyro_y:-2.03053, gyro_z:-0.35115[0m
+[0;32mI (5462) mpu6050 test: MPU1 acce_x:0.43628, acce_y:0.40381, acce_z:0.83228, gyro_x:1.95420, gyro_y:-1.14504, gyro_z:1.75573[0m
+[0;32mI (5492) mpu6050 test: MPU2 acce_x:0.12891, acce_y:0.25708, acce_z:0.98413, gyro_x:-20.76336, gyro_y:-1.22137, gyro_z:1.84733[0m
+[0;32mI (5512) mpu6050 test: MPU1 acce_x:0.44019, acce_y:0.38062, acce_z:0.83130, gyro_x:0.59542, gyro_y:-1.75573, gyro_z:2.82443[0m
+[0;32mI (5542) mpu6050 test: MPU2 acce_x:0.12695, acce_y:0.22510, acce_z:0.91943, gyro_x:-6.51908, gyro_y:-5.12977, gyro_z:1.34351[0m
+[0;32mI (5562) mpu6050 test: MPU1 acce_x:0.44238, acce_y:0.40088, acce_z:0.86279, gyro_x:0.42748, gyro_y:-2.65649, gyro_z:1.81679[0m
+[0;32mI (5592) mpu6050 test: MPU2 acce_x:0.13257, acce_y:0.22388, acce_z:0.97095, gyro_x:-6.85496, gyro_y:0.71756, gyro_z:5.86260[0m
+[0;32mI (5622) mpu6050 test: MPU1 acce_x:0.44678, acce_y:0.39136, acce_z:0.83130, gyro_x:-0.15267, gyro_y:1.81679, gyro_z:0.96183[0m
+[0;32mI (5642) mpu6050 test: MPU2 acce_x:0.14136, acce_y:0.21069, acce_z:0.92847, gyro_x:0.21374, gyro_y:-0.93130, gyro_z:-0.21374[0m
+[0;32mI (5672) mpu6050 test: MPU1 acce_x:0.42114, acce_y:0.36865, acce_z:0.78638, gyro_x:4.07634, gyro_y:-1.14504, gyro_z:-0.62595[0m
+[0;32mI (5702) mpu6050 test: MPU2 acce_x:0.14014, acce_y:0.23755, acce_z:0.89209, gyro_x:5.32824, gyro_y:3.29771, gyro_z:-1.67939[0m
+[0;32mI (5722) mpu6050 test: MPU1 acce_x:0.49780, acce_y:0.37427, acce_z:0.81079, gyro_x:10.82443, gyro_y:8.65649, gyro_z:5.90840[0m
+[0;32mI (5752) mpu6050 test: MPU2 acce_x:-0.23071, acce_y:0.25098, acce_z:-0.59546, gyro_x:500.25955, gyro_y:2.07634, gyro_z:-99.19084[0m
+[0;32mI (5782) mpu6050 test: MPU1 acce_x:0.45679, acce_y:0.40796, acce_z:0.85815, gyro_x:32.67176, gyro_y:51.46565, gyro_z:-0.67176[0m
+[0;32mI (5802) mpu6050 test: MPU2 acce_x:0.59668, acce_y:2.10352, acce_z:1.15186, gyro_x:500.25955, gyro_y:81.90839, gyro_z:-63.34351[0m
+[0;32mI (5832) mpu6050 test: MPU1 acce_x:0.36499, acce_y:0.39746, acce_z:0.74902, gyro_x:43.20611, gyro_y:-13.90840, gyro_z:-2.35115[0m
+[0;32mI (5862) mpu6050 test: MPU2 acce_x:-0.07812, acce_y:1.27075, acce_z:0.25098, gyro_x:255.95419, gyro_y:36.27481, gyro_z:-10.82443[0m
+[0;32mI (5882) mpu6050 test: MPU1 acce_x:0.45190, acce_y:0.47534, acce_z:0.89795, gyro_x:35.72519, gyro_y:25.22137, gyro_z:-10.16794[0m
+[0;32mI (5912) mpu6050 test: MPU2 acce_x:-0.02563, acce_y:1.23584, acce_z:-0.17358, gyro_x:167.29771, gyro_y:17.57252, gyro_z:-24.21374[0m
+[0;32mI (5942) mpu6050 test: MPU1 acce_x:0.42822, acce_y:0.52002, acce_z:0.88281, gyro_x:25.72519, gyro_y:14.59542, gyro_z:-2.77863[0m
+[0;32mI (5962) mpu6050 test: MPU2 acce_x:-0.06226, acce_y:1.08765, acce_z:-0.45459, gyro_x:92.96183, gyro_y:56.74809, gyro_z:-17.93893[0m
+[0;32mI (5992) mpu6050 test: MPU1 acce_x:0.32153, acce_y:0.48877, acce_z:0.72192, gyro_x:34.07634, gyro_y:-0.96183, gyro_z:0.22901[0m
+[0;32mI (6022) mpu6050 test: MPU2 acce_x:-0.05127, acce_y:0.83862, acce_z:-0.48096, gyro_x:37.19084, gyro_y:10.35114, gyro_z:2.59542[0m
+[0;32mI (6042) mpu6050 test: MPU1 acce_x:0.41626, acce_y:0.51465, acce_z:0.81812, gyro_x:5.14504, gyro_y:-0.91603, gyro_z:-1.67939[0m
+[0;32mI (6072) mpu6050 test: MPU2 acce_x:0.04980, acce_y:0.82471, acce_z:-0.59351, gyro_x:25.58779, gyro_y:13.74046, gyro_z:-6.91603[0m
+[0;32mI (6102) mpu6050 test: MPU1 acce_x:0.36914, acce_y:0.53833, acce_z:0.80859, gyro_x:3.09924, gyro_y:1.51145, gyro_z:-0.35115[0m
+[0;32mI (6122) mpu6050 test: MPU2 acce_x:-0.00049, acce_y:0.86499, acce_z:-0.60107, gyro_x:1.66412, gyro_y:0.65649, gyro_z:0.48855[0m
+[0;32mI (6152) mpu6050 test: MPU1 acce_x:0.38965, acce_y:0.53735, acce_z:0.78809, gyro_x:-2.09160, gyro_y:-0.36641, gyro_z:1.31298[0m
+[0;32mI (6172) mpu6050 test: MPU2 acce_x:0.01636, acce_y:0.73950, acce_z:-0.63354, gyro_x:0.88550, gyro_y:-2.74809, gyro_z:2.94656[0m
+[0;32mI (6202) mpu6050 test: MPU1 acce_x:0.37891, acce_y:0.50757, acce_z:0.75220, gyro_x:3.34351, gyro_y:-3.02290, gyro_z:-0.24427[0m
+[0;32mI (6232) mpu6050 test: MPU2 acce_x:0.02002, acce_y:0.83838, acce_z:-0.59180, gyro_x:-4.29008, gyro_y:-3.09924, gyro_z:0.54962[0m
+[0;32mI (6252) mpu6050 test: MPU1 acce_x:0.44312, acce_y:0.51831, acce_z:0.79321, gyro_x:-3.86260, gyro_y:-0.30534, gyro_z:4.39695[0m
+[0;32mI (6282) mpu6050 test: MPU2 acce_x:0.04028, acce_y:0.76343, acce_z:-0.68872, gyro_x:-13.19084, gyro_y:-1.19084, gyro_z:0.61069[0m
+[0;32mI (6312) mpu6050 test: MPU1 acce_x:0.47461, acce_y:0.51270, acce_z:0.72534, gyro_x:0.94656, gyro_y:4.74809, gyro_z:6.91603[0m
+[0;32mI (6332) mpu6050 test: MPU2 acce_x:0.08350, acce_y:0.79126, acce_z:-0.63477, gyro_x:-3.69466, gyro_y:5.28244, gyro_z:-8.32061[0m
+[0;32mI (6362) mpu6050 test: MPU1 acce_x:0.60596, acce_y:0.56421, acce_z:0.79175, gyro_x:2.22901, gyro_y:13.83206, gyro_z:16.99237[0m
+[0;32mI (6392) mpu6050 test: MPU2 acce_x:0.20166, acce_y:0.89209, acce_z:-0.70142, gyro_x:-24.71756, gyro_y:26.32061, gyro_z:-37.46565[0m
+[0;32mI (6412) mpu6050 test: MPU1 acce_x:0.61401, acce_y:0.58936, acce_z:0.71631, gyro_x:-2.19847, gyro_y:40.16794, gyro_z:38.44275[0m
+[0;32mI (6442) mpu6050 test: MPU2 acce_x:0.31958, acce_y:0.87158, acce_z:-0.72314, gyro_x:-24.04580, gyro_y:50.16794, gyro_z:-51.45038[0m
+[0;32mI (6472) mpu6050 test: MPU1 acce_x:0.87646, acce_y:0.54688, acce_z:0.66235, gyro_x:7.72519, gyro_y:49.46565, gyro_z:76.51908[0m
+[0;32mI (6492) mpu6050 test: MPU2 acce_x:0.32837, acce_y:0.89087, acce_z:-0.69897, gyro_x:-35.58779, gyro_y:77.43511, gyro_z:-52.29008[0m
+[0;32mI (6522) mpu6050 test: MPU1 acce_x:0.62354, acce_y:0.54810, acce_z:0.74854, gyro_x:15.23664, gyro_y:62.09160, gyro_z:103.16031[0m
+[0;32mI (6552) mpu6050 test: MPU2 acce_x:0.03271, acce_y:0.82202, acce_z:-0.60156, gyro_x:-35.54198, gyro_y:82.99236, gyro_z:-65.93893[0m
+[0;32mI (6572) mpu6050 test: MPU1 acce_x:0.36011, acce_y:0.52954, acce_z:0.77734, gyro_x:15.54198, gyro_y:64.93130, gyro_z:94.97710[0m
+[0;32mI (6602) mpu6050 test: MPU2 acce_x:-0.03809, acce_y:0.79565, acce_z:-0.57568, gyro_x:-39.26717, gyro_y:80.91603, gyro_z:-66.94656[0m
+[0;32mI (6632) mpu6050 test: MPU1 acce_x:0.31616, acce_y:0.47070, acce_z:0.75317, gyro_x:17.64886, gyro_y:61.93893, gyro_z:92.36641[0m
+[0;32mI (6652) mpu6050 test: MPU2 acce_x:-0.10962, acce_y:0.75537, acce_z:-0.56055, gyro_x:-29.28244, gyro_y:84.44275, gyro_z:-63.64885[0m
+[0;32mI (6682) mpu6050 test: MPU1 acce_x:0.32642, acce_y:0.50098, acce_z:0.80151, gyro_x:20.38168, gyro_y:67.57252, gyro_z:95.60305[0m
+[0;32mI (6712) mpu6050 test: MPU2 acce_x:-0.07739, acce_y:0.75806, acce_z:-0.57104, gyro_x:-33.70992, gyro_y:95.17558, gyro_z:-68.10687[0m
+[0;32mI (6732) mpu6050 test: MPU1 acce_x:0.35645, acce_y:0.48486, acce_z:0.70972, gyro_x:25.49618, gyro_y:52.76336, gyro_z:110.36641[0m
+[0;32mI (6762) mpu6050 test: MPU2 acce_x:0.11523, acce_y:0.75610, acce_z:-0.62134, gyro_x:-38.67176, gyro_y:118.38168, gyro_z:-67.19084[0m
+[0;32mI (6792) mpu6050 test: MPU1 acce_x:0.58569, acce_y:0.47607, acce_z:0.59717, gyro_x:46.45802, gyro_y:79.03817, gyro_z:139.22137[0m
+[0;32mI (6812) mpu6050 test: MPU2 acce_x:0.44604, acce_y:0.63550, acce_z:-0.66577, gyro_x:-53.63359, gyro_y:196.25954, gyro_z:-92.77863[0m
+[0;32mI (6842) mpu6050 test: MPU1 acce_x:0.34229, acce_y:0.49805, acce_z:0.18628, gyro_x:92.06107, gyro_y:77.26717, gyro_z:195.02290[0m
+[0;32mI (6872) mpu6050 test: MPU2 acce_x:-0.31445, acce_y:0.22681, acce_z:-0.58252, gyro_x:13.41985, gyro_y:140.42747, gyro_z:-76.51908[0m
+[0;32mI (6892) mpu6050 test: MPU1 acce_x:-0.07837, acce_y:0.75537, acce_z:0.83081, gyro_x:74.22900, gyro_y:88.01527, gyro_z:121.37405[0m
+[0;32mI (6922) mpu6050 test: MPU2 acce_x:-0.57153, acce_y:1.03174, acce_z:-0.61206, gyro_x:-28.94657, gyro_y:113.26717, gyro_z:-54.42748[0m
+[0;32mI (6952) mpu6050 test: MPU1 acce_x:-0.28320, acce_y:0.78174, acce_z:1.04883, gyro_x:56.79389, gyro_y:43.58779, gyro_z:88.73283[0m
+[0;32mI (6972) mpu6050 test: MPU2 acce_x:-0.56787, acce_y:1.04565, acce_z:-0.53613, gyro_x:30.74809, gyro_y:66.29008, gyro_z:-10.27481[0m
+[0;32mI (7002) mpu6050 test: MPU1 acce_x:-0.19067, acce_y:0.80615, acce_z:1.33667, gyro_x:12.85496, gyro_y:-3.58779, gyro_z:39.28244[0m
+[0;32mI (7032) mpu6050 test: MPU2 acce_x:-0.63525, acce_y:1.18433, acce_z:-0.64209, gyro_x:-21.69466, gyro_y:30.97710, gyro_z:-0.33588[0m
+[0;32mI (7052) mpu6050 test: MPU1 acce_x:-0.04297, acce_y:0.65332, acce_z:1.18433, gyro_x:-34.54962, gyro_y:-0.94656, gyro_z:25.98473[0m
+[0;32mI (7082) mpu6050 test: MPU2 acce_x:-0.33179, acce_y:0.81372, acce_z:-0.53125, gyro_x:-31.48092, gyro_y:-4.10687, gyro_z:10.76336[0m
+[0;32mI (7112) mpu6050 test: MPU1 acce_x:0.11548, acce_y:0.40356, acce_z:0.82300, gyro_x:-31.92366, gyro_y:-6.58015, gyro_z:-6.83969[0m
+[0;32mI (7132) mpu6050 test: MPU2 acce_x:-0.10669, acce_y:0.72632, acce_z:-0.47192, gyro_x:-16.18321, gyro_y:-10.90076, gyro_z:-6.16794[0m
+[0;32mI (7162) mpu6050 test: MPU1 acce_x:0.36182, acce_y:0.33228, acce_z:0.76587, gyro_x:-11.45038, gyro_y:14.82443, gyro_z:0.76336[0m
+[0;32mI (7192) mpu6050 test: MPU2 acce_x:-0.09741, acce_y:0.74609, acce_z:-0.44971, gyro_x:-11.55725, gyro_y:-8.83969, gyro_z:-1.81679[0m
+[0;32mI (7212) mpu6050 test: MPU1 acce_x:0.22583, acce_y:0.34644, acce_z:0.74902, gyro_x:11.17557, gyro_y:-3.19084, gyro_z:-6.93130[0m
+[0;32mI (7242) mpu6050 test: MPU2 acce_x:-0.09326, acce_y:0.81689, acce_z:-0.47607, gyro_x:-1.87786, gyro_y:-8.68702, gyro_z:0.35115[0m
+[0;32mI (7272) mpu6050 test: MPU1 acce_x:0.33105, acce_y:0.41772, acce_z:0.90991, gyro_x:0.82443, gyro_y:-0.87023, gyro_z:-0.45802[0m
+[0;32mI (7292) mpu6050 test: MPU2 acce_x:-0.12817, acce_y:0.85083, acce_z:-0.47705, gyro_x:-2.29008, gyro_y:-5.83206, gyro_z:4.76336[0m
+[0;32mI (7322) mpu6050 test: MPU1 acce_x:0.27783, acce_y:0.41284, acce_z:0.87231, gyro_x:7.41985, gyro_y:-5.19084, gyro_z:-4.15267[0m
+[0;32mI (7352) mpu6050 test: MPU2 acce_x:-0.12988, acce_y:0.88623, acce_z:-0.46631, gyro_x:-1.06870, gyro_y:-5.75573, gyro_z:2.53435[0m
+[0;32mI (7372) mpu6050 test: MPU1 acce_x:0.27637, acce_y:0.41675, acce_z:0.88892, gyro_x:3.69466, gyro_y:-1.00763, gyro_z:-4.16794[0m
+[0;32mI (7402) mpu6050 test: MPU2 acce_x:-0.09985, acce_y:0.87524, acce_z:-0.46436, gyro_x:-2.03053, gyro_y:-1.60305, gyro_z:3.45038[0m
+[0;32mI (7432) mpu6050 test: MPU1 acce_x:0.26050, acce_y:0.39062, acce_z:0.84644, gyro_x:5.57252, gyro_y:-5.55725, gyro_z:-0.30534[0m
+[0;32mI (7452) mpu6050 test: MPU2 acce_x:-0.11768, acce_y:0.84351, acce_z:-0.45801, gyro_x:1.63359, gyro_y:-2.36641, gyro_z:1.89313[0m
+[0;32mI (7482) mpu6050 test: MPU1 acce_x:0.31982, acce_y:0.42798, acce_z:0.91748, gyro_x:3.49618, gyro_y:-0.70229, gyro_z:-0.82443[0m
+[0;32mI (7512) mpu6050 test: MPU2 acce_x:-0.11768, acce_y:0.86572, acce_z:-0.47241, gyro_x:-1.89313, gyro_y:-2.91603, gyro_z:1.78626[0m
+[0;32mI (7532) mpu6050 test: MPU1 acce_x:0.28149, acce_y:0.41089, acce_z:0.87134, gyro_x:4.68702, gyro_y:-4.21374, gyro_z:-0.24427[0m
+[0;32mI (7562) mpu6050 test: MPU2 acce_x:-0.10181, acce_y:0.85815, acce_z:-0.48071, gyro_x:1.78626, gyro_y:0.13740, gyro_z:1.55725[0m
+[0;32mI (7582) mpu6050 test: MPU1 acce_x:0.31470, acce_y:0.42603, acce_z:0.89380, gyro_x:5.55725, gyro_y:-0.16794, gyro_z:1.95420[0m
+[0;32mI (7612) mpu6050 test: MPU2 acce_x:-0.11230, acce_y:0.91016, acce_z:-0.48584, gyro_x:-4.04580, gyro_y:1.63359, gyro_z:1.63359[0m
+[0;32mI (7642) mpu6050 test: MPU1 acce_x:0.28003, acce_y:0.42627, acce_z:0.86597, gyro_x:4.94656, gyro_y:-0.80916, gyro_z:2.51908[0m
+[0;32mI (7662) mpu6050 test: MPU2 acce_x:-0.12427, acce_y:0.88452, acce_z:-0.47705, gyro_x:-0.36641, gyro_y:-0.99237, gyro_z:0.64122[0m
+[0;32mI (7692) mpu6050 test: MPU1 acce_x:0.27417, acce_y:0.43286, acce_z:0.86719, gyro_x:3.45038, gyro_y:-1.43511, gyro_z:0.42748[0m
+[0;32mI (7722) mpu6050 test: MPU2 acce_x:-0.11353, acce_y:0.89502, acce_z:-0.47192, gyro_x:-6.27481, gyro_y:1.98473, gyro_z:-0.38168[0m
+[0;32mI (7742) mpu6050 test: MPU1 acce_x:0.24854, acce_y:0.41406, acce_z:0.83521, gyro_x:6.65649, gyro_y:-4.27481, gyro_z:2.19847[0m
+[0;32mI (7772) mpu6050 test: MPU2 acce_x:-0.11963, acce_y:0.84961, acce_z:-0.45801, gyro_x:1.98473, gyro_y:-0.91603, gyro_z:2.53435[0m
+[0;32mI (7802) mpu6050 test: MPU1 acce_x:0.30884, acce_y:0.43726, acce_z:0.88550, gyro_x:4.16794, gyro_y:1.87786, gyro_z:-0.58015[0m
+[0;32mI (7822) mpu6050 test: MPU2 acce_x:-0.09155, acce_y:0.89868, acce_z:-0.47290, gyro_x:-2.45802, gyro_y:0.70229, gyro_z:1.09924[0m
+[0;32mI (7852) mpu6050 test: MPU1 acce_x:0.26758, acce_y:0.43384, acce_z:0.85645, gyro_x:4.77863, gyro_y:-2.44275, gyro_z:1.02290[0m
+[0;32mI (7882) mpu6050 test: MPU2 acce_x:-0.12524, acce_y:0.84058, acce_z:-0.47803, gyro_x:2.83969, gyro_y:-1.31298, gyro_z:1.86260[0m
+[0;32mI (7902) mpu6050 test: MPU1 acce_x:0.26978, acce_y:0.42188, acce_z:0.84253, gyro_x:8.70229, gyro_y:-1.75573, gyro_z:-2.06107[0m
+[0;32mI (7932) mpu6050 test: MPU2 acce_x:-0.11816, acce_y:0.87231, acce_z:-0.46289, gyro_x:0.19847, gyro_y:-2.30534, gyro_z:2.47328[0m
+[0;32mI (7962) mpu6050 test: MPU1 acce_x:0.25903, acce_y:0.43896, acce_z:0.85645, gyro_x:5.98473, gyro_y:-3.49618, gyro_z:-1.02290[0m
+[0;32mI (7982) mpu6050 test: MPU2 acce_x:-0.10156, acce_y:0.84155, acce_z:-0.48047, gyro_x:10.13740, gyro_y:1.83206, gyro_z:8.74809[0m
+[0;32mI (8012) mpu6050 test: MPU1 acce_x:0.30835, acce_y:0.44238, acce_z:0.88232, gyro_x:7.74046, gyro_y:-5.38931, gyro_z:-2.39695[0m
+[0;32mI (8032) mpu6050 test: MPU2 acce_x:-0.10278, acce_y:0.91626, acce_z:-0.47314, gyro_x:-2.88550, gyro_y:-0.21374, gyro_z:0.27481[0m
+[0;32mI (8062) mpu6050 test: MPU1 acce_x:0.30688, acce_y:0.45703, acce_z:0.89795, gyro_x:1.49618, gyro_y:-3.64885, gyro_z:2.88550[0m
+[0;32mI (8092) mpu6050 test: MPU2 acce_x:-0.11426, acce_y:0.88745, acce_z:-0.49268, gyro_x:-2.09160, gyro_y:-0.64122, gyro_z:0.38168[0m
+[0;32mI (8112) mpu6050 test: MPU1 acce_x:0.32739, acce_y:0.46118, acce_z:0.88989, gyro_x:3.72519, gyro_y:4.03053, gyro_z:0.00000[0m
+[0;32mI (8142) mpu6050 test: MPU2 acce_x:-0.10913, acce_y:0.89722, acce_z:-0.49438, gyro_x:-2.15267, gyro_y:-0.47328, gyro_z:-2.24427[0m
+[0;32mI (8172) mpu6050 test: MPU1 acce_x:0.27563, acce_y:0.44946, acce_z:0.85449, gyro_x:2.12214, gyro_y:0.82443, gyro_z:4.13740[0m
+[0;32mI (8192) mpu6050 test: MPU2 acce_x:-0.11743, acce_y:0.82349, acce_z:-0.47729, gyro_x:-0.42748, gyro_y:1.26718, gyro_z:0.79389[0m
+[0;32mI (8222) mpu6050 test: MPU1 acce_x:0.26294, acce_y:0.44092, acce_z:0.83667, gyro_x:7.66412, gyro_y:0.54962, gyro_z:-1.63359[0m
+[0;32mI (8252) mpu6050 test: MPU2 acce_x:-0.10083, acce_y:0.87549, acce_z:-0.47168, gyro_x:-0.88550, gyro_y:0.12214, gyro_z:-1.02290[0m
+[0;32mI (8272) mpu6050 test: MPU1 acce_x:0.31665, acce_y:0.45020, acce_z:0.87036, gyro_x:2.74809, gyro_y:0.16794, gyro_z:3.16031[0m
+[0;32mI (8302) mpu6050 test: MPU2 acce_x:-0.10938, acce_y:0.86084, acce_z:-0.49048, gyro_x:0.45802, gyro_y:-0.48855, gyro_z:-0.53435[0m
+[0;32mI (8332) mpu6050 test: MPU1 acce_x:0.29346, acce_y:0.47607, acce_z:0.87012, gyro_x:3.90840, gyro_y:2.64122, gyro_z:-2.19847[0m
+[0;32mI (8352) mpu6050 test: MPU2 acce_x:-0.10962, acce_y:0.87061, acce_z:-0.49902, gyro_x:-1.80153, gyro_y:-3.70992, gyro_z:-2.27481[0m
+[0;32mI (8382) mpu6050 test: MPU1 acce_x:0.29761, acce_y:0.48120, acce_z:0.85278, gyro_x:0.09160, gyro_y:-0.68702, gyro_z:0.35115[0m
+[0;32mI (8402) mpu6050 test: MPU2 acce_x:-0.09839, acce_y:0.85059, acce_z:-0.50903, gyro_x:-0.44275, gyro_y:-0.68702, gyro_z:2.96183[0m
+[0;32mI (8432) mpu6050 test: MPU1 acce_x:0.28638, acce_y:0.45972, acce_z:0.84229, gyro_x:1.52672, gyro_y:-0.73282, gyro_z:-0.13740[0m
+[0;32mI (8462) mpu6050 test: MPU2 acce_x:-0.09985, acce_y:0.84302, acce_z:-0.49146, gyro_x:-1.54198, gyro_y:-1.11450, gyro_z:1.12977[0m
+[0;32mI (8482) mpu6050 test: MPU1 acce_x:0.28247, acce_y:0.45093, acce_z:0.82764, gyro_x:4.87023, gyro_y:-1.51145, gyro_z:0.16794[0m
+[0;32mI (8512) mpu6050 test: MPU2 acce_x:-0.12256, acce_y:0.84741, acce_z:-0.48535, gyro_x:2.01527, gyro_y:-2.90076, gyro_z:-0.80916[0m
+[0;32mI (8542) mpu6050 test: MPU1 acce_x:0.29443, acce_y:0.46606, acce_z:0.87378, gyro_x:2.24427, gyro_y:1.22137, gyro_z:-2.65649[0m
+[0;32mI (8562) mpu6050 test: MPU2 acce_x:-0.11499, acce_y:0.89307, acce_z:-0.50317, gyro_x:-1.67939, gyro_y:-1.46565, gyro_z:0.12214[0m
+[0;32mI (8592) mpu6050 test: MPU1 acce_x:0.27417, acce_y:0.46680, acce_z:0.87207, gyro_x:1.78626, gyro_y:-2.07634, gyro_z:-0.21374[0m
+[0;32mI (8622) mpu6050 test: MPU2 acce_x:-0.12134, acce_y:0.86792, acce_z:-0.48462, gyro_x:-1.49618, gyro_y:-2.68702, gyro_z:0.64122[0m
+[0;32mI (8642) mpu6050 test: MPU1 acce_x:0.28809, acce_y:0.45386, acce_z:0.84058, gyro_x:2.76336, gyro_y:1.23664, gyro_z:-1.63359[0m
+[0;32mI (8672) mpu6050 test: MPU2 acce_x:-0.10938, acce_y:0.86768, acce_z:-0.49097, gyro_x:-1.69466, gyro_y:-2.33588, gyro_z:-1.03817[0m
+[0;32mI (8702) mpu6050 test: MPU1 acce_x:0.27588, acce_y:0.46338, acce_z:0.85205, gyro_x:1.92366, gyro_y:-0.36641, gyro_z:-0.15267[0m
+[0;32mI (8722) mpu6050 test: MPU2 acce_x:-0.11084, acce_y:0.84497, acce_z:-0.47632, gyro_x:-1.77099, gyro_y:-2.54962, gyro_z:0.30534[0m
+[0;32mI (8752) mpu6050 test: MPU1 acce_x:0.28833, acce_y:0.45483, acce_z:0.85107, gyro_x:1.32824, gyro_y:1.22137, gyro_z:0.07634[0m
+[0;32mI (8782) mpu6050 test: MPU2 acce_x:-0.11108, acce_y:0.85229, acce_z:-0.48389, gyro_x:-1.72519, gyro_y:-1.64885, gyro_z:0.29008[0m
+[0;32mI (8802) mpu6050 test: MPU1 acce_x:0.28442, acce_y:0.47021, acce_z:0.86108, gyro_x:0.73282, gyro_y:-1.02290, gyro_z:0.03053[0m
+[0;32mI (8832) mpu6050 test: MPU2 acce_x:-0.10767, acce_y:0.87427, acce_z:-0.48853, gyro_x:-2.50382, gyro_y:-1.63359, gyro_z:1.64885[0m
+[0;32mI (8852) mpu6050 test: MPU1 acce_x:0.29688, acce_y:0.45801, acce_z:0.84351, gyro_x:3.14504, gyro_y:-0.82443, gyro_z:0.01527[0m
+[0;32mI (8882) mpu6050 test: MPU2 acce_x:-0.10254, acce_y:0.87305, acce_z:-0.48730, gyro_x:-1.08397, gyro_y:-2.22901, gyro_z:0.68702[0m
+[0;32mI (8912) mpu6050 test: MPU1 acce_x:0.30933, acce_y:0.46704, acce_z:0.85376, gyro_x:0.83969, gyro_y:-0.04580, gyro_z:0.94656[0m
+[0;32mI (8932) mpu6050 test: MPU2 acce_x:-0.10522, acce_y:0.87671, acce_z:-0.49512, gyro_x:-3.02290, gyro_y:0.19847, gyro_z:0.44275[0m
+[0;32mI (8962) mpu6050 test: MPU1 acce_x:0.27734, acce_y:0.46021, acce_z:0.84326, gyro_x:2.25954, gyro_y:-1.92366, gyro_z:1.92366[0m
+[0;32mI (8992) mpu6050 test: MPU2 acce_x:-0.12500, acce_y:0.86182, acce_z:-0.49170, gyro_x:-1.54198, gyro_y:-0.79389, gyro_z:2.15267[0m
+[0;32mI (9012) mpu6050 test: MPU1 acce_x:0.27881, acce_y:0.47046, acce_z:0.86206, gyro_x:-0.58015, gyro_y:-0.56489, gyro_z:-0.22901[0m
+[0;32mI (9042) mpu6050 test: MPU2 acce_x:-0.15283, acce_y:0.83203, acce_z:-0.49780, gyro_x:0.90076, gyro_y:-3.78626, gyro_z:0.01527[0m
+[0;32mI (9072) mpu6050 test: MPU1 acce_x:0.27002, acce_y:0.46753, acce_z:0.85669, gyro_x:-2.80916, gyro_y:-2.42748, gyro_z:-1.20611[0m
+[0;32mI (9092) mpu6050 test: MPU2 acce_x:-0.10767, acce_y:0.88501, acce_z:-0.50073, gyro_x:0.70229, gyro_y:-2.39695, gyro_z:3.90840[0m
+[0;32mI (9122) mpu6050 test: MPU1 acce_x:0.29370, acce_y:0.47192, acce_z:0.86670, gyro_x:0.51908, gyro_y:-0.64122, gyro_z:-2.87023[0m
+[0;32mI (9152) mpu6050 test: MPU2 acce_x:-0.12012, acce_y:0.87646, acce_z:-0.50293, gyro_x:-1.87786, gyro_y:-4.85496, gyro_z:-0.85496[0m
+[0;32mI (9172) mpu6050 test: MPU1 acce_x:0.27637, acce_y:0.44751, acce_z:0.85986, gyro_x:-0.25954, gyro_y:-0.90076, gyro_z:-0.82443[0m
+[0;32mI (9202) mpu6050 test: MPU2 acce_x:-0.11377, acce_y:0.85400, acce_z:-0.47290, gyro_x:-2.54962, gyro_y:-2.73282, gyro_z:1.02290[0m
+[0;32mI (9232) mpu6050 test: MPU1 acce_x:0.30078, acce_y:0.44751, acce_z:0.86426, gyro_x:-0.54962, gyro_y:-1.11450, gyro_z:0.27481[0m
+[0;32mI (9252) mpu6050 test: MPU2 acce_x:-0.08179, acce_y:0.87061, acce_z:-0.48145, gyro_x:-2.71756, gyro_y:-0.04580, gyro_z:2.33588[0m
+[0;32mI (9282) mpu6050 test: MPU1 acce_x:0.30884, acce_y:0.43579, acce_z:0.85034, gyro_x:2.94656, gyro_y:0.56489, gyro_z:1.55725[0m
+[0;32mI (9312) mpu6050 test: MPU2 acce_x:-0.09985, acce_y:0.85034, acce_z:-0.49512, gyro_x:-0.22901, gyro_y:-0.33588, gyro_z:-3.31298[0m
+[0;32mI (9332) mpu6050 test: MPU1 acce_x:0.28687, acce_y:0.46436, acce_z:0.86743, gyro_x:1.51145, gyro_y:3.02290, gyro_z:0.51908[0m
+[0;32mI (9362) mpu6050 test: MPU2 acce_x:-0.10522, acce_y:0.87012, acce_z:-0.49023, gyro_x:-2.59542, gyro_y:-1.02290, gyro_z:-0.97710[0m
+[0;32mI (9382) mpu6050 test: MPU1 acce_x:0.28271, acce_y:0.45923, acce_z:0.83911, gyro_x:1.67939, gyro_y:-1.06870, gyro_z:1.09924[0m
+[0;32mI (9412) mpu6050 test: MPU2 acce_x:-0.10645, acce_y:0.84302, acce_z:-0.49829, gyro_x:-2.13740, gyro_y:-0.48855, gyro_z:1.86260[0m
+[0;32mI (9442) mpu6050 test: MPU1 acce_x:0.28589, acce_y:0.45239, acce_z:0.83765, gyro_x:3.05344, gyro_y:-0.74809, gyro_z:1.00763[0m
+[0;32mI (9462) mpu6050 test: MPU2 acce_x:-0.12939, acce_y:0.84570, acce_z:-0.50024, gyro_x:0.41221, gyro_y:-0.97710, gyro_z:-0.48855[0m
+[0;32mI (9492) mpu6050 test: MPU1 acce_x:0.27393, acce_y:0.47217, acce_z:0.86670, gyro_x:2.73282, gyro_y:0.80916, gyro_z:-1.06870[0m
+[0;32mI (9522) mpu6050 test: MPU2 acce_x:-0.13745, acce_y:0.87061, acce_z:-0.49414, gyro_x:-2.06107, gyro_y:-3.55725, gyro_z:0.35115[0m
+[0;32mI (9542) mpu6050 test: MPU1 acce_x:0.27026, acce_y:0.46509, acce_z:0.85791, gyro_x:-0.21374, gyro_y:-1.64885, gyro_z:-1.86260[0m
+[0;32mI (9572) mpu6050 test: MPU2 acce_x:-0.10864, acce_y:0.86157, acce_z:-0.48438, gyro_x:-2.10687, gyro_y:-2.36641, gyro_z:2.62595[0m
+[0;32mI (9602) mpu6050 test: MPU1 acce_x:0.28345, acce_y:0.43164, acce_z:0.83984, gyro_x:1.96947, gyro_y:-2.50382, gyro_z:-0.74809[0m
+[0;32mI (9622) mpu6050 test: MPU2 acce_x:-0.11377, acce_y:0.84912, acce_z:-0.48169, gyro_x:0.58015, gyro_y:-1.16031, gyro_z:-0.79389[0m
+[0;32mI (9652) mpu6050 test: MPU1 acce_x:0.29321, acce_y:0.43896, acce_z:0.85376, gyro_x:2.73282, gyro_y:1.84733, gyro_z:-0.16794[0m
+[0;32mI (9682) mpu6050 test: MPU2 acce_x:-0.10156, acce_y:0.88281, acce_z:-0.50464, gyro_x:-2.00000, gyro_y:-1.25191, gyro_z:-0.47328[0m
+[0;32mI (9702) mpu6050 test: MPU1 acce_x:0.30151, acce_y:0.46753, acce_z:0.88696, gyro_x:2.22901, gyro_y:0.97710, gyro_z:1.86260[0m
+[0;32mI (9732) mpu6050 test: MPU2 acce_x:-0.11792, acce_y:0.88086, acce_z:-0.50171, gyro_x:-3.48092, gyro_y:1.34351, gyro_z:0.21374[0m
+[0;32mI (9762) mpu6050 test: MPU1 acce_x:0.29321, acce_y:0.46216, acce_z:0.86792, gyro_x:-0.99237, gyro_y:-0.67176, gyro_z:4.27481[0m
+[0;32mI (9782) mpu6050 test: MPU2 acce_x:-0.10791, acce_y:0.82788, acce_z:-0.47998, gyro_x:-1.84733, gyro_y:0.88550, gyro_z:0.68702[0m
+[0;32mI (9812) mpu6050 test: MPU1 acce_x:0.26807, acce_y:0.44458, acce_z:0.83154, gyro_x:4.27481, gyro_y:-0.47328, gyro_z:1.80153[0m
+[0;32mI (9832) mpu6050 test: MPU2 acce_x:-0.13184, acce_y:0.84814, acce_z:-0.48633, gyro_x:-1.66412, gyro_y:-1.22137, gyro_z:0.58015[0m
+[0;32mI (9862) mpu6050 test: MPU1 acce_x:0.27002, acce_y:0.46484, acce_z:0.85400, gyro_x:2.74809, gyro_y:1.03817, gyro_z:-0.06107[0m
+[0;32mI (9892) mpu6050 test: MPU2 acce_x:-0.13037, acce_y:0.87256, acce_z:-0.49854, gyro_x:-1.72519, gyro_y:-1.45038, gyro_z:1.67939[0m
+[0;32mI (9912) mpu6050 test: MPU1 acce_x:0.28271, acce_y:0.45898, acce_z:0.85498, gyro_x:0.71756, gyro_y:-4.36641, gyro_z:0.88550[0m
+[0;32mI (9942) mpu6050 test: MPU2 acce_x:-0.11060, acce_y:0.84961, acce_z:-0.48462, gyro_x:-1.05344, gyro_y:-1.40458, gyro_z:3.19084[0m
+[0;32mI (9972) mpu6050 test: MPU1 acce_x:0.28979, acce_y:0.44580, acce_z:0.85034, gyro_x:2.41221, gyro_y:-1.57252, gyro_z:0.27481[0m
+[0;32mI (9992) mpu6050 test: MPU2 acce_x:-0.11670, acce_y:0.86060, acce_z:-0.49414, gyro_x:0.07634, gyro_y:-1.02290, gyro_z:2.07634[0m
+[0;32mI (10022) mpu6050 test: MPU1 acce_x:0.30566, acce_y:0.45874, acce_z:0.85645, gyro_x:4.64122, gyro_y:-0.39695, gyro_z:-0.54962[0m
+[0;32mI (10052) mpu6050 test: MPU2 acce_x:-0.09595, acce_y:0.87720, acce_z:-0.51245, gyro_x:0.16794, gyro_y:-0.93130, gyro_z:-0.61069[0m
+[0;32mI (10072) mpu6050 test: MPU1 acce_x:0.30835, acce_y:0.49072, acce_z:0.89014, gyro_x:0.61069, gyro_y:-1.29771, gyro_z:2.80916[0m
+[0;32mI (10102) mpu6050 test: MPU2 acce_x:-0.11230, acce_y:0.85889, acce_z:-0.50146, gyro_x:-2.03053, gyro_y:-0.01527, gyro_z:2.42748[0m
+[0;32mI (10132) mpu6050 test: MPU1 acce_x:0.27588, acce_y:0.45483, acce_z:0.83105, gyro_x:3.58779, gyro_y:-0.21374, gyro_z:-0.07634[0m
+[0;32mI (10152) mpu6050 test: MPU2 acce_x:-0.10815, acce_y:0.85815, acce_z:-0.50146, gyro_x:0.83969, gyro_y:-0.09160, gyro_z:-2.35115[0m
+[0;32mI (10182) mpu6050 test: MPU1 acce_x:0.27417, acce_y:0.45776, acce_z:0.84692, gyro_x:3.66412, gyro_y:-0.53435, gyro_z:0.87023[0m
+[0;32mI (10212) mpu6050 test: MPU2 acce_x:-0.13916, acce_y:0.86719, acce_z:-0.48169, gyro_x:-1.80153, gyro_y:-2.36641, gyro_z:0.00000[0m
+[0;32mI (10232) mpu6050 test: MPU1 acce_x:0.27515, acce_y:0.45312, acce_z:0.86816, gyro_x:1.23664, gyro_y:-0.32061, gyro_z:-0.90076[0m
+[0;32mI (10262) mpu6050 test: MPU2 acce_x:-0.10156, acce_y:0.87524, acce_z:-0.48511, gyro_x:-1.69466, gyro_y:-0.70229, gyro_z:1.58779[0m
+[0;32mI (10292) mpu6050 test: MPU1 acce_x:0.31348, acce_y:0.45654, acce_z:0.88477, gyro_x:1.35878, gyro_y:0.32061, gyro_z:2.12214[0m
+[0;32mI (10312) mpu6050 test: MPU2 acce_x:-0.09668, acce_y:0.89624, acce_z:-0.49658, gyro_x:-3.90840, gyro_y:0.33588, gyro_z:-1.49618[0m
+[0;32mI (10342) mpu6050 test: MPU1 acce_x:0.30493, acce_y:0.46826, acce_z:0.85645, gyro_x:0.62595, gyro_y:1.57252, gyro_z:3.20611[0m
+[0;32mI (10362) mpu6050 test: MPU2 acce_x:-0.11865, acce_y:0.85034, acce_z:-0.51172, gyro_x:-2.77863, gyro_y:-0.06107, gyro_z:-1.52672[0m
+[0;32mI (10392) mpu6050 test: MPU1 acce_x:0.28052, acce_y:0.46753, acce_z:0.84229, gyro_x:1.51145, gyro_y:2.83969, gyro_z:0.83969[0m
+[0;32mI (10422) mpu6050 test: MPU2 acce_x:-0.10522, acce_y:0.84326, acce_z:-0.49976, gyro_x:-4.16794, gyro_y:-1.11450, gyro_z:-0.94656[0m
+[0;32mI (10422) main_task: Returned from app_main()[0m

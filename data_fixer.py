@@ -1,11 +1,7 @@
 import os
 import pandas as pd
-
+# Simmillar to data_rearrange.py, this script fixes the column order in CSV files, was used to fix the column order in the data files
 def swap_data_in_columns(folder_path):
-    """
-    Recursively process all CSV files in the folder and its subfolders to swap
-    accelerometer and gyroscope data for each dimension.
-    """
     for root, _, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.csv'):
@@ -31,8 +27,6 @@ def swap_data_in_columns(folder_path):
                 except Exception as e:
                     print(f"Error processing {file_path}: {e}")
 
-# Replace this with the path to your "data" folder
 data_folder = "data/idle-h"
 
-# Call the function to process all CSVs
 swap_data_in_columns(data_folder)

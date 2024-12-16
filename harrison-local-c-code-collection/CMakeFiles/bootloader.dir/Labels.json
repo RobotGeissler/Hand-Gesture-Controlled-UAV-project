@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/harrison/Assignment-1 submission/assignment-1/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

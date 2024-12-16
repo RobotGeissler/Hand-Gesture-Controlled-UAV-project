@@ -8,13 +8,14 @@ import numpy as np
 # torch.
 
 class SensorDataset(Dataset):
-    def __init__(self, data_dir, time_window=1):
+    # Time window is artifact left over from previous implementation
+    def __init__(self, data_dir, time_window=1, include_augmented=True):
         self.data_dir = data_dir
         self.time_window = time_window
         self.sensor_order = ["MPU1", "MPU2"]
+        self.include_augmented = include_augmented
 
         # Map folder names to class labels
-        # self.labels = {label: idx for idx, label in enumerate(os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, label)) else [])}
         self.files = [f for f in os.listdir(data_dir)]
         self.labels = {file: idx for idx, file in enumerate(self.files)}
         self.data = []
@@ -25,11 +26,14 @@ class SensorDataset(Dataset):
             files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".csv")]
 
             for file in files:
+                # Include only augmented files if specified
+                if not include_augmented and "_aug_" in file:
+                    continue
+
                 data = pd.read_csv(file)
 
                 # Create data points based on the time window
                 n_points = len(data) - len(data) % 2  # Ensure divisible by 2 for MPU1 and MPU2
-
                 if n_points >= self.time_window:
                     self.data.append((data.iloc[:n_points].values, idx))
 
@@ -39,7 +43,7 @@ class SensorDataset(Dataset):
     def __getitem__(self, idx):
         input_data = self.data[idx][0]
         label = self.data[idx][1]
-        # Expand label to be a 1 hot vector
+        # Expand label to be a one-hot vector
         label = np.eye(len(self.labels))[label]
         # Ensure sensor order is consistent
         order_consistent = np.array_equal(
@@ -58,6 +62,7 @@ class SensorDataset(Dataset):
         sequence_length = input_tensor.shape[0]
         return input_tensor, label, sequence_length
 
+# Collate function for padding sequences to the same length per batch
 def pad_inputs(batch):
     inputs, labels, lengths = zip(*batch)
     lengths = torch.tensor(lengths, dtype=torch.long)
@@ -71,7 +76,7 @@ def pad_inputs(batch):
     inputs_padded = torch.nn.utils.rnn.pad_sequence(inputs, batch_first=True)
     return inputs_padded, labels, lengths.to(torch.long)
 
-# dataloader = DataLoader(SensorDataset('data/', time_window=7), batch_size=16, shuffle=True, collate_fn=pad_inputs)
+# dataloader = DataLoader(SensorDataset('data-ag/', time_window=7, include_augmented=True), batch_size=16, shuffle=True, collate_fn=pad_inputs)
 # for x, y, lengths in dataloader:
 #     print(x.shape, y.shape)
 # exit()
@@ -84,14 +89,15 @@ def split_dataset(dataset, val_percent=0.2, test_percent=0.1):
     train_size = len(dataset) - val_size - test_size
     return random_split(dataset, [train_size, val_size, test_size])
 
-#Collate None 
-def get_data_loaders(data_dir, batch_size=32, time_window=1, collate_fn=pad_inputs):
-    dataset = SensorDataset(data_dir, time_window)
+# Collate None 
+def get_data_loaders(data_dir, batch_size=16, time_window=1, include_augmented=True, collate_fn=pad_inputs):
+    dataset = SensorDataset(data_dir, time_window, include_augmented=include_augmented)
     train_dataset, val_dataset, test_dataset = split_dataset(dataset)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
     return train_loader, val_loader, test_loader, len(dataset.labels)
+
 
 import torch.nn as nn
 import pytorch_lightning as pl
@@ -110,7 +116,7 @@ class LSTMClassifier(pl.LightningModule):
 
     def forward(self, x, lengths):
         # Pack the padded sequence
-        packed_x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths.long(), batch_first=True, enforce_sorted=True)
+        packed_x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths.cpu(), batch_first=True, enforce_sorted=True)
         packed_out, (hidden, _) = self.lstm(packed_x)
         
         # Use the last hidden state for classification
@@ -157,18 +163,18 @@ def objective(trial):
     ]
 
     # Dataloaders
-    data_dir = "data/"
+    data_dir = "data-ag/"
     train_loader, val_loader, test_loader, num_classes = get_data_loaders(data_dir, time_window=n_timesteps)
 
     # Model
     model = LSTMClassifier(input_size=12, hidden_sizes=hidden_sizes, num_classes=num_classes, learning_rate=learning_rate)
     model.to("cuda")
     # Training
-    logger = TensorBoardLogger("tb_logs", name="optuna_run6")
+    logger = TensorBoardLogger("tb_logs", name="optuna_run_augmented_new_2")
     trainer = Trainer(
         strategy='ddp',
         devices=1,
-        max_epochs=10,
+        max_epochs=60,
         logger=logger,
         enable_checkpointing=False,
         val_check_interval=0.25,  # Validate every 25% of an epoch
@@ -180,11 +186,11 @@ def objective(trial):
     return trainer.callback_metrics["val_loss"].item()
 
 train_loader = None
-if (True):
+if (False):
     # Run optimization
-    data_dir = "data/" 
+    data_dir = "data-ag/" 
     study = optuna.create_study(direction="minimize")
-    study.optimize(objective, n_trials=1)
+    study.optimize(objective, n_trials=50)
 
     print("Best hyperparameters:", study.best_params)
     print("Best validation loss:", study.best_value)
@@ -200,7 +206,7 @@ if (True):
         learning_rate=best_params["learning_rate"],
     )
     train_loader, val_loader, test_loader, num_classes = get_data_loaders(data_dir, time_window=best_params["n_timesteps"])
-    trainer = Trainer(max_epochs=10)
+    trainer = Trainer(max_epochs=100)
     trainer.fit(model, train_loader, val_loader)
     trainer.test(model, test_loader)
 
@@ -208,10 +214,10 @@ if (True):
     torch.save({
         "model_state_dict": model.state_dict(),
         "best_params": best_params
-    }, "best_model_2.pth")
+    }, "best_model_data_aug_2.pth")
 
 # get model params
-checkpoint = torch.load("best_model_2.pth")
+checkpoint = torch.load("best_model_data_aug_2.pth")
 best_params = checkpoint["best_params"]
 
 # load the model
@@ -232,14 +238,25 @@ model.load_state_dict(checkpoint["model_state_dict"])
 from torchmetrics import Accuracy
 if (train_loader is None):
     # for i in range(20):
-    data_dir = "data/"
+    data_dir = "data-ag/"
     train_loader, val_loader, test_loader, num_classes = get_data_loaders(data_dir, time_window=best_params["n_timesteps"])
-accuracy = Accuracy(task="multiclass", num_classes=num_classes)
+accuracy = Accuracy(task="multiclass", num_classes=8)
+for x, y, lengths in test_loader:
+    y_pred = model(x, lengths)
+    y_pred = torch.argmax(y_pred, dim=1)
+    y = torch.argmax(y, dim=1)
+    accuracy.update(y_pred, y)
+# Torch F1 Score
+from torchmetrics.classification import F1Score
+f1 = F1Score(task='multiclass', num_classes=8)
 model.eval()
 for x, y, lengths in test_loader:
     y_pred = model(x, lengths)
-    accuracy(y_pred, y)
+    y_pred = torch.argmax(y_pred, dim=1)
+    y = torch.argmax(y, dim=1)
+    f1.update(y_pred, y)
 # for x, y in test_loader:
 #     y_pred = model(x)
 #     accuracy(y_pred, y)
-print("Test accuracy:", accuracy.compute())
+# Bugs out on full training run before, just rerun this with the model loaded and avoid training if you need the result
+print("Test accuracy:", f1.compute())
